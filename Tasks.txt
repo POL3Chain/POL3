@@ -1,0 +1,10 @@
+- Take use of PLA+FLOF token (pool will form the GLUE token)
+
+- Site
+
+https://br.godaddy.com/domainsearch/find?checkAvail=1&plid=1&domainToCheck=pol3.io&itc=dom_whois_dbs
+
+Features:
+- Bridge from ImmutableX https://www.immutable.com/
+- Other NFT bridges
+- Ronin bridge
