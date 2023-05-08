@@ -8,12 +8,20 @@ POL3 will be a "Layer3" built atop Polygon.
 POL3 is a portmanteau for "Polygon" and "L3".
 
 Can Polygon reach 100K TPS? With POL3 we may see it.
+- How that can be possible? Polygon is extremelly cheap to write data into, which mean POL3 can be even cheaper. About speed advantages, results are to be seen yet.
 
 Run an node/validator
 Certainly a lot of ppl will want to try a faster Polygon, and that's why you would want to capture part of the tx fees!
+Validators and [donnors]() will be elligible for 10% of the GLUE supply distribution.
 
 What you can do on POL3:
 - Bridge from Polygon
 - Create a DAO (aragon logo)
 - Deploy your own dapp/smart-contracts
 - Run an node/validator
+
+What's still missing on POL3 (opportunities for deployment)
+- Swap
+- Lending
+
+Features to add futurely (ImmutableX, Ronin, etc)

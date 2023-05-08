@@ -4,9 +4,26 @@ START it:
 Intro: https://stack.optimism.io/ then dig:
 https://stack.optimism.io/docs/build/getting-started/#errors
 https://discord.com/channels/667044843901681675/1080867873997729874
+
 - aragon.plasmmer.com deployed on POL3, then advertise it in our site
 Challenges:
 - running the Sequencer (centralized, may be expensive)
+- chain's token ETH or MATIC??
+- running POL3 Mumbai testnet alongside our Mainnet
+- RPC safety https://pastebin.com/vNCD7DpP
+-
+- bridge site (rename ETH to MATIC)
+- bc explorer site (rename ETH to MATIC)
+
+- Site
+https://www.namecheap.com/domains/registration/results/?domain=pol3.io (cheaper than .gg)
+Twitter and other socials
+
+Hardforks
+- GLUE intro: Take use of PLA+FLOF token (pool will form the GLUE token) for Governance, replacing OP
+-? Replace Optimism chain to Arbitrum (but re-use/transplant previous blocks)
+
+Other:
 https://stack.optimism.io/docs/build/conf/#governance-token
 https://stack.optimism.io/docs/build/operations/#adding-nodes
 https://stack.optimism.io/docs/build/explorer/#graphql
@@ -14,12 +31,9 @@ https://stack.optimism.io/docs/build/sdk/#verify-sdk-functionality
 https://github.com/ethereum-optimism/optimism/tree/56961f9208af8a43a25a138cce21ef488c418141/packages/contracts/docs
 https://github.com/ethereum-optimism/optimism/blob/8d67991aba584c1703692ea46273ea8a1ef45f56/specs/protocol/components/predeploys.md
 
-- Site
-https://www.namecheap.com/domains/registration/results/?domain=pol3.io (cheaper than .gg)
-
-- Take use of PLA+FLOF token (pool will form the GLUE token) for Governance (will require a HardFork to replace OP)
-
 Features:
 - Bridge from ImmutableX https://www.immutable.com/
 - Other NFT bridges
 - Ronin bridge (requires approval)
+
+launch POL4
