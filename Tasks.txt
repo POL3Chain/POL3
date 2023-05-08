@@ -5,6 +5,8 @@ Intro: https://stack.optimism.io/ then dig:
 https://stack.optimism.io/docs/build/getting-started/#errors
 https://discord.com/channels/667044843901681675/1080867873997729874
 - aragon.plasmmer.com deployed on POL3, then advertise it in our site
+Challenges:
+- running the Sequencer (centralized, may be expensive)
 https://stack.optimism.io/docs/build/conf/#governance-token
 https://stack.optimism.io/docs/build/operations/#adding-nodes
 https://stack.optimism.io/docs/build/explorer/#graphql

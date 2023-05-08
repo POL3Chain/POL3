@@ -5,4 +5,15 @@ POL3
 Polygon on steroids.
 POL3 will be a "Layer3" built atop Polygon.
 
+POL3 is a portmanteau for "Polygon" and "L3".
+
 Can Polygon reach 100K TPS? With POL3 we may see it.
+
+Run an node/validator
+Certainly a lot of ppl will want to try a faster Polygon, and that's why you would want to capture part of the tx fees!
+
+What you can do on POL3:
+- Bridge from Polygon
+- Create a DAO (aragon logo)
+- Deploy your own dapp/smart-contracts
+- Run an node/validator
