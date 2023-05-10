@@ -37,3 +37,27 @@ Features:
 - Ronin bridge (requires approval)
 
 launch POL4
+
+site list: https://github.com/Plasmmer/optimism, https://github.com/Plasmmer/op-geth
+
+POL3's NFTs and POAPs (same for other DAOs), including "POL3 Pioneer"
+tell about POL3 Mumbai is settled on Polygon's Mumbai, so bridge: https://faucet.polygon.technology/
+parter RabbitHole
+
+sudo apt update
+sudo apt install -y git curl make jq
+sudo npm install -g yarn
+curl -L https://foundry.paradigm.xyz | bash
+. ~/.bashrc
+foundryup
+-
+-?"npm install -g lerna" or "yarn global add lerna" or? "sudo npm install --g lerna"?
+-
+cd ~
+git clone https://github.com/Plasmmer/optimism.git
+cd optimism
+yarn install
+make op-node op-batcher op-proposer
+yarn build
+
+add to chainlist.org
