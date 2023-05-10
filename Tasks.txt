@@ -60,4 +60,9 @@ yarn install
 make op-node op-batcher op-proposer
 yarn build
 
-add to chainlist.org
+submit to:
+https://chainlist.org/
+https://www.quicknode.com/chains/zkevm?utm_term=polygon%20zkevm&utm_campaign=Chain+%7C+Polygon+zkEVM&utm_source=google&utm_medium=cpc&hsa_acc=1365030395&hsa_cam=19820077908&hsa_grp=147051250556&hsa_ad=651343259994&hsa_src=g&hsa_tgt=kwd-1967582520454&hsa_kw=polygon%20zkevm&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad=1&gclid=CjwKCAjwge2iBhBBEiwAfXDBR2UCAajWfJkg5UJ7uSTXE0TdiXvcwiKEPA4cxQs41tARVp3PWDe2IxoCQ80QAvD_BwE
+https://defillama.com/chain/Polygon%20zkEVM?tvl=true
+https://l2beat.com/scaling/projects/polygonzkevm
+CoinGecko (GLUE+PLA+FLOF tokens, POL3 chain, Bunnyswap DEX)
