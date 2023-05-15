@@ -2,7 +2,11 @@ Logistics/Costs challenges of POL3:
 - Sequencer
 - first Node
 
-https://rpc-mainnet.maticvigil.com/
+Other challenges:
+- How it can be faster than Polygon?
+- ProtoDankSharding coming to Ethereum, making L2s 10-100X cheaper
+- If POL3 fees get so cheap, how validators will find it interesting to earn?
+
 Polygon Mainnet: 137
 POL3 Mainnet: 133
 
