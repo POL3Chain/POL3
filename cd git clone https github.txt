@@ -1,0 +1,144 @@
+cd ~
+git clone https://github.com/Plasmmer/op-geth.git
+cd op-geth
+make geth
+cd ~
+cd optimism
+cd packages/contracts-bedrock
+npx hardhat rekey
+cd ~/optimism
+cd packages/contracts-bedrock
+#cast block finalized --rpc-url https://rpc-mumbai.maticvigil.com | grep -E "(timestamp|hash|number)"
+#cast block finalized --rpc-url https://rpc-mainnet.maticvigil.com | grep -E "(timestamp|hash|number)"
+cp .env.example .env
+
+"npx hardhat deploy --network mumbai --tags l1" or "npx hardhat deploy --network polygon --tags l1"
+
+cd ~/optimism/op-node
+--------------------------
+go run cmd/main.go genesis l2 \
+    --deploy-config ../packages/contracts-bedrock/deploy-config/mumbai.json \
+    --deployment-dir ../packages/contracts-bedrock/deployments/mumbai/ \
+    --outfile.l2 genesis.json \
+    --outfile.rollup rollup.json \
+    --l1-rpc https://rpc-mumbai.maticvigil.com
+------------------or:
+go run cmd/main.go genesis l2 \
+    --deploy-config ../packages/contracts-bedrock/deploy-config/polygon.json \
+    --deployment-dir ../packages/contracts-bedrock/deployments/polygon/ \
+    --outfile.l2 genesis.json \
+    --outfile.rollup rollup.json \
+    --l1-rpc https://rpc-mainnet.maticvigil.com
+--------------------------
+
+openssl rand -hex 32 > jwt.txt
+
+cp genesis.json ~/op-geth
+cp jwt.txt ~/op-geth
+
+cd ~/op-geth
+mkdir datadir
+echo "pwd" > datadir/password
+
+echo "<SEQUENCER KEY HERE>" > datadir/block-signer-key
+
+./build/bin/geth account import --datadir=datadir --password=datadir/password datadir/block-signer-key
+build/bin/geth init --datadir=datadir genesis.json
+
+cd ~/op-geth
+
+--------------------------
+export SEQ_ADDR="0xdbbe642382acebe84fb95d520a54f758d19e3b6c"
+export SEQ_KEY=""
+export BATCHER_KEY=""
+export PROPOSER_KEY=""
+export L1_RPC="https://rpc-mumbai.maticvigil.com"
+export RPC_KIND="any"
+export L2OO_ADDR="0x4Eb28Ca01c7062D51D4E86e09dB2D7Ad451F87BD"
+------------------or:
+export SEQ_ADDR="0xdbbe642382acebe84fb95d520a54f758d19e3b6c"
+export SEQ_KEY=""
+export BATCHER_KEY=""
+export PROPOSER_KEY=""
+export L1_RPC="https://rpc-mainnet.maticvigil.com"
+export RPC_KIND="any"
+export L2OO_ADDR="0x4Eb28Ca01c7062D51D4E86e09dB2D7Ad451F87BD"
+--------------------------
+
+source .bashrc
+
+--------------------------
+./build/bin/geth \
+	--datadir ./datadir \
+	--http \
+	--http.corsdomain="*" \
+	--http.vhosts="*" \
+	--http.addr=0.0.0.0 \
+	--http.api=web3,debug,eth,txpool,net,engine \
+	--ws \
+	--ws.addr=0.0.0.0 \
+	--ws.port=8546 \
+	--ws.origins="*" \
+	--ws.api=debug,eth,txpool,net,engine \
+	--syncmode=full \
+	--gcmode=archive \
+	--nodiscover \
+	--maxpeers=0 \
+	--networkid=80002 \
+	--authrpc.vhosts="*" \
+	--authrpc.addr=0.0.0.0 \
+	--authrpc.port=8551 \
+	--authrpc.jwtsecret=./jwt.txt \
+	--rollup.disabletxpoolgossip=true \
+	--password=./datadir/password \
+	--allow-insecure-unlock \
+	--mine \
+	--miner.etherbase=$SEQ_ADDR \
+	--unlock=$SEQ_ADDR
+------------------or:
+./build/bin/geth \
+	--datadir ./datadir \
+	--http \
+	--http.corsdomain="*" \
+	--http.vhosts="*" \
+	--http.addr=0.0.0.0 \
+	--http.api=web3,debug,eth,txpool,net,engine \
+	--ws \
+	--ws.addr=0.0.0.0 \
+	--ws.port=8546 \
+	--ws.origins="*" \
+	--ws.api=debug,eth,txpool,net,engine \
+	--syncmode=full \
+	--gcmode=archive \
+	--nodiscover \
+	--maxpeers=0 \
+	--networkid=133 \
+	--authrpc.vhosts="*" \
+	--authrpc.addr=0.0.0.0 \
+	--authrpc.port=8551 \
+	--authrpc.jwtsecret=./jwt.txt \
+	--rollup.disabletxpoolgossip=true \
+	--password=./datadir/password \
+	--allow-insecure-unlock \
+	--mine \
+	--miner.etherbase=$SEQ_ADDR \
+	--unlock=$SEQ_ADDR
+--------------------------
+
+cd ~/optimism/op-node
+
+./bin/op-node \
+	--l2=http://localhost:8551 \
+	--l2.jwt-secret=./jwt.txt \
+	--sequencer.enabled \
+	--sequencer.l1-confs=3 \
+	--verifier.l1-confs=3 \
+	--rollup.config=./rollup.json \
+	--rpc.addr=0.0.0.0 \
+	--rpc.port=8547 \
+	--p2p.disable \
+	--rpc.enable-admin \
+	--p2p.sequencer.key=$SEQ_KEY \
+	--l1=$L1_RPC \
+	--l1.rpckind=$RPC_KIND
+

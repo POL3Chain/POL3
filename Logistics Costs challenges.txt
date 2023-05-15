@@ -1,0 +1,10 @@
+Logistics/Costs challenges of POL3:
+- Sequencer
+- first Node
+
+https://rpc-mainnet.maticvigil.com/
+Polygon Mainnet: 137
+POL3 Mainnet: 133
+
+Polygon Mumbai Testnet: 80001
+POL3 Mumbai Testnet: 80002
