@@ -21,7 +21,7 @@ Twitter and other socials
 
 Hardforks
 - GLUE intro: Take use of PLA+FLOF token (pool will form the GLUE token) for Governance, replacing OP
--? Replace Optimism chain to Arbitrum (but re-use/transplant previous blocks)
+-? Replace Optimism chain to Arbitrum or upgrade to Bedrock (but re-use/transplant previous blocks)
 
 Other:
 https://stack.optimism.io/docs/build/conf/#governance-token
@@ -46,19 +46,51 @@ parter RabbitHole
 
 sudo apt update
 sudo apt install -y git curl make jq
+sudo apt update
+wget https://go.dev/dl/go1.20.linux-amd64.tar.gz
+tar xvzf go1.20.linux-amd64.tar.gz
+sudo cp go/bin/go /usr/bin/go
+sudo mv go /usr/lib
+echo export GOROOT=/usr/lib/go >> ~/.bashrc
+rm go1.20.linux-amd64.tar.gz
+#curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+nvm install 16.0.0
+sudo apt-get install -y npm
 sudo npm install -g yarn
 curl -L https://foundry.paradigm.xyz | bash
 . ~/.bashrc
 foundryup
--
--?"npm install -g lerna" or "yarn global add lerna" or? "sudo npm install --g lerna"?
 -
 cd ~
 git clone https://github.com/Plasmmer/optimism.git
 cd optimism
 yarn install
 make op-node op-batcher op-proposer
+npx lerna init
 yarn build
+-
+-?"npm install -g lerna" or "yarn global add lerna" or? "sudo npm install --g lerna"?
+-
+------------ error:
+daniella@daniella-Aspire-A315-23:~/optimism$ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+error hardhat@2.9.6: The engine "node" is incompatible with this module. Expected version "^12.0.0 || ^14.0.0 || ^16.0.0". Got "18.13.0"
+error Found incompatible module.
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+daniella@daniella-Aspire-A315-23:~/optimism$ node --version
+v18.13.0
+---------------------
+daniella@daniella-Aspire-A315-23:~/optimism$ yarn build
+yarn run v1.22.19
+$ yarn lerna run build
+error Command "lerna" not found.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
 
 submit to:
 https://chainlist.org/
@@ -66,3 +98,6 @@ https://www.quicknode.com/chains/zkevm?utm_term=polygon%20zkevm&utm_campaign=Cha
 https://defillama.com/chain/Polygon%20zkEVM?tvl=true
 https://l2beat.com/scaling/projects/polygonzkevm
 CoinGecko (GLUE+PLA+FLOF tokens, POL3 chain, Bunnyswap DEX)
+
+
+
